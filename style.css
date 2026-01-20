@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #4a6fa5;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+.screen {
+    transition: opacity 0.5s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    background: #4a6fa5;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 5px;
+}
+
+.btn:hover {
+    background: #385d8a;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(58, 87, 135, 0.2);
+}
+
+.btn-secondary {
+    background: #6c757d;
+}
+
+.btn-success {
+    background: #28a745;
+}
+
+.quiz-header {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.stats {
+    /* display: flex; */
+    /* justify-content: space-between; */ /* Eliminá esto */
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #495057;
+    text-align: center; /* Centrá el texto */
+}
+
+#progress-bar {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.question-container {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+#question-text {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option {
+    background: white;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.05rem;
+}
+
+.option:hover {
+    border-color: #4a6fa5;
+    background: #f0f7ff;
+}
+
+.option.selected {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.score {
+    text-align: center;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.score h3 {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+#score-message {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #6c757d;
+}
+
+.review-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 5px solid #4a6fa5;
+}
+
+.correct-answer {
+    background: #d4edda;
+    border-left-color: #28a745;
+}
+
+.incorrect-answer {
+    background: #f8d7da;
+    border-left-color: #dc3545;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* Estilos para el menú principal */
+.menu-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.categoria-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    padding: 30px 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+    .categoria-card:hover {
+        transform: translateY(-10px);
+        border-color: #4a6fa5;
+        box-shadow: 0 15px 30px rgba(74, 111, 165, 0.15);
+    }
+
+    .categoria-card i {
+        font-size: 3rem;
+        color: #4a6fa5;
+        margin-bottom: 20px;
+    }
+
+    .categoria-card h3 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+    }
+
+    .categoria-card p {
+        color: #6c757d;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+/* Estilos para submenú */
+.subcategorias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.subcategoria-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #e9ecef;
+    text-align: center;
+}
+
+    .subcategoria-card:hover {
+        border-color: #4a6fa5;
+        background: #f8fafd;
+        transform: scale(1.03);
+    }
+
+    .subcategoria-card h4 {
+        color: #2c3e50;
+        margin-bottom: 5px;
+    }
+
+    .subcategoria-card .contador {
+        display: inline-block;
+        background: #4a6fa5;
+        color: white;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-top: 8px;
+    }
+
+/* Instrucciones mejoradas */
+.instrucciones {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 25px 0;
+}
+
+    .instrucciones h3 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+.info-simulacro {
+    background: #e7f1ff;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+    .info-simulacro p {
+        margin: 8px 0;
+        color: #2c3e50;
+    }
+
+.acciones-inicio {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Botón para volver */
+.btn-volver {
+    background: transparent;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+}
+
+    .btn-volver:hover {
+        background: #f8f9fa;
+        color: #495057;
+    }
+
+
+/* Estilos para opciones correctas/incorrectas */
+.option.correct {
+    background-color: #d4edda !important;
+    border-color: #28a745 !important;
+    color: #155724;
+}
+
+.option.incorrect {
+    background-color: #f8d7da !important;
+    border-color: #dc3545 !important;
+    color: #721c24;
+}
+
+/* Estilo para explicación */
+.explicacion {
+    background-color: #e7f1ff;
+    border-left: 4px solid #4a6fa5;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    animation: fadeIn 0.5s ease;
+}
+
+    .explicacion strong {
+        color: #2c3e50;
+    }
+
+/* Animación para explicación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Deshabilitar clic en opciones cuando está en revisión */
+.option.disabled {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulacro de Examen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+        </header>
+        <!-- Agregá esta pantalla ANTES de start-screen -->
+        <div id="menu-screen" class="screen">
+            <header>
+                <h1><i class="fas fa-graduation-cap"></i> Simulador de Examen de Becas</h1>
+                <p>Seleccioná el área de estudio</p>
+            </header>
+
+            <div class="menu-categorias">
+                <div class="categoria-card" data-categoria="RAZONAMIENTO MATEMATICO">
+                    <i class="fas fa-calculator"></i>
+                    <h3>Razonamiento Matemático</h3>
+                    <p>Patrones, lógica y resolución de problemas</p>
+                </div>
+
+                <div class="categoria-card" data-categoria="CONOCIMIENTOS GENERALES">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Conocimientos Generales</h3>
+                    <p>Física, Química, Historia, Geografía, etc.</p>
+                </div>
+
+                <!-- Podés agregar más categorías si necesitás -->
+                <div class="categoria-card" data-categoria="SIMULACRO_COMPLETO">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Simulacro Completo</h3>
+                    <p>Todas las preguntas mezcladas</p>
+                </div>
+            </div>
+
+            <footer>
+            </footer>
+        </div>
+
+        <!-- Agregá esta pantalla para subcategorías -->
+        <div id="submenu-screen" class="screen hidden">
+            <header>
+                <h2 id="categoria-titulo"></h2>
+                <p>Elegí la sección específica</p>
+                <button id="volver-menu" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver al menú
+                </button>
+            </header>
+
+            <div id="subcategorias-container" class="subcategorias-grid">
+                <!-- Las subcategorías se cargan dinámicamente -->
+            </div>
+        </div>
+
+        <!-- Modificá el start-screen para que ahora sea "instrucciones específicas" -->
+        <div id="start-screen" class="screen hidden">
+            <header>
+                <h2 id="seccion-titulo"></h2>
+                <p id="seccion-descripcion"></p>
+            </header>
+
+            <div class="instrucciones">
+                <h3><i class="fas fa-info-circle"></i> Instrucciones</h3>
+                <ul>
+                    <li>Respondé todas las preguntas antes de finalizar.</li>
+                    <li>Al seleccionar una respuesta, verás inmediatamente si es correcta.</li>
+                    <li>La explicación aparecerá debajo para que aprendas del error.</li>
+                    <li>Podés usar "Anterior" y "Siguiente" para navegar.</li>
+                    <li>Al finalizar, verás tu puntaje y podrás repasar todas las preguntas.</li>
+                </ul>
+            </div>
+
+            <div class="info-simulacro">
+                <p><strong>Cantidad de preguntas:</strong> <span id="cantidad-preguntas">0</span></p>
+                <p><strong>Tiempo estimado:</strong> Sin límite de tiempo</p>
+            </div>
+
+            <div class="acciones-inicio">
+                <button id="volver-submenu" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Elegir otra sección
+                </button>
+                <button id="start-btn" class="btn btn-success">
+                    <i class="fas fa-play"></i> Comenzar Simulacro
+                </button>
+            </div>
+        </div>
+        <div id="start-screen" class="screen">
+        
+        </div>
+
+        <div id="quiz-screen" class="screen hidden">
+            <div class="quiz-header">
+                <div class="stats">
+                    <span id="question-counter">Pregunta 1 de 5</span>
+                </div>
+                <progress id="progress-bar" value="1" max="5"></progress>
+            </div>
+
+            <div class="question-container">
+                <h3 id="question-text">¿Acá aparecerá la pregunta?</h3>
+                <div id="options-container">
+                    <!-- Las opciones se cargan con JavaScript -->
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button id="prev-btn" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button id="next-btn" class="btn">Siguiente <i class="fas fa-arrow-right"></i></button>
+                <button id="submit-btn" class="btn btn-success hidden"><i class="fas fa-paper-plane"></i> Finalizar Examen</button>
+            </div>
+        </div>
+
+        <div id="results-screen" class="screen hidden">
+            <h2><i class="fas fa-chart-line"></i> Resultados</h2>
+            <div class="score">
+                <h3>Tu puntaje: <span id="score">0</span> de <span id="total-questions">5</span></h3>
+                <p id="score-message"></p>
+            </div>
+            <div id="review-container">
+                <!-- Acá se cargan las preguntas con sus respuestas correctas/incorrectas -->
+            </div>
+            <button id="restart-btn" class="btn"><i class="fas fa-redo"></i> Reiniciar Simulacro</button>
+        </div>
+
+        <footer>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
